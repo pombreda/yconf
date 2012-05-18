@@ -1,0 +1,16 @@
+Source: yconf
+Section: python
+Priority: extra
+Maintainer: Christian Kampka <chris@emerge-life.de>
+Build-Depends: debhelper (>= 8.0.0), python ( >= 2.7), python-setuptools, libyaml-dev
+Standards-Version: 3.9.2
+Homepage: http://github.com/kampka/yconf
+Vcs-Git: git@github.com:kampka/yconf.git
+
+Package: yconf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python ( >= 2.7), python-yaml
+Description: Config utility that combines argparse with yaml.
+ yconf combines pythons argparse command line parser with yaml configuration files.
+ It also incoporates Rails' principle to have different configuration environments
+ for different stages of deployment.
