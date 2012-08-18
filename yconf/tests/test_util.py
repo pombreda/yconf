@@ -109,11 +109,11 @@ class ConfigEntryTest(TestCase):
         self.assertIsNone(None, nd.lookup(("a", "x", "y")))
         self.assertEqual(self.data["a"], nd.lookup(["a"]))
 
-    def test_iteritems(self):
+    def test_items(self):
 
         nd = NestedDict(self.data)
 
-        for k, v in nd.iteritems():
+        for k, v in nd.items():
             self.assertIn(k, self.data)
             self.assertEqual(self.data[k], v)
 
@@ -126,6 +126,30 @@ class ConfigEntryTest(TestCase):
         nd.update({"parent": "foo"})
         self.assertIsNone(nd.parent)
         self.assertEqual("foo", nd.get("parent"))
+
+
+    def test_in(self):
+
+        nd = NestedDict(self.data)
+        self.assertIn("a", nd)
+        self.assertNotIn("g", nd)
+
+    def test_delete(self):
+
+        nd = NestedDict(self.data)
+
+
+        self.assertIn("b", nd["a"])
+        delattr(nd["a"], "b")
+        self.assertNotIn("b", nd["a"])
+
+        self.assertIn("e", nd["a"])
+        del nd["a"]["e"]
+        self.assertNotIn("e", nd["a"])
+
+        self.assertIn("a", nd)
+        nd.delete("a")
+        self.assertNotIn("a", nd)
 
 
 def test_suite():
