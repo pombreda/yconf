@@ -25,14 +25,19 @@
 
 from setuptools import setup, find_packages
 
+def readme():
+        with open("README.rst") as f:
+                    return f.read()
+
 setup(
     name='yconf',
-    version="0.3",
+    version="0.3.1",
     license='BSD-3',
     author='Christian Kampka',
-    author_email='chris@emerge-life.de',
+    author_email='christian@kampka.net',
     description='Wrapper that combines argparse with yaml config files.',
-    #long_description='Here a longer description',
+    long_description=readme(),
+    url='https://github.com/kampka/yconf',
     install_requires=[
         "PyYAML >= 3.1",
     ],
@@ -42,4 +47,13 @@ setup(
     ],
     test_suite="yconf.tests",
     packages=find_packages(),
+    classifiers = [
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
+        'Topic :: Software Development',
+        ],
     )
