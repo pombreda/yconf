@@ -1,3 +1,11 @@
+yconf (0.3.1) unstable; urgency=low
+
+  * added pypi classifiers
+  * added README
+  * various metadata improvements
+
+ -- Christian Kampka <christian@kampka.net>  Mon, 04 Feb 2013 16:00:43 +0100
+
 yconf (0.3) unstable; urgency=low
 
   * fixed import error for test suite
